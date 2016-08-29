@@ -57,7 +57,7 @@
     </bean>
     
     <!-- Bean的作用于
-    singleton 单例：整个容器中只有一个对象实例
+    singleton 单例：整个容器中只有一个对象实例（默认）
     prototype 原型：每次获取bean都产生一个新的对象
     request 每次request时，创建一个新的实例
     session 在会话的范围内时的一个对象
