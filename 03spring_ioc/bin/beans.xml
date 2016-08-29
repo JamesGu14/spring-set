@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <bean id="user" class="cn.sxt.vo.User">
+      <property name="name" value="James"></property>
+    </bean>  
+    
+    <!-- <bean id="user1" class="cn.sxt.vo.User">
+      <constructor-arg index="0" value="Kara"></constructor-arg>
+    </bean> -->
+    
+    <bean id="user1" class="cn.sxt.vo.User">
+      <constructor-arg name="name" value="Kara"></constructor-arg>
+    </bean>
+    
+    <!-- 团队协作通过import 来实现 -->    
+    <import resource="factory.xml"/>
+</beans>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!-- User Factory Create user instance -->
+    
+    <!-- 静态工厂 -->
+    <!-- <bean id="user2" class="cn.sxt.factory.UserFactory" factory-method="newInstance">
+      <constructor-arg name="name" value="Johnson"></constructor-arg>
+    </bean> -->
+    
+    <!-- 动态工厂 -->
+    <bean id="userFactory" class="cn.sxt.factory.UserDynamicFactory" />
+    <bean id="user2" factory-bean="userFactory" factory-method="newInstance">
+      <constructor-arg name="name" value="Johnson"></constructor-arg>
+    </bean>
+    
+    <alias name="user2" alias="myuser"/>
+</beans>

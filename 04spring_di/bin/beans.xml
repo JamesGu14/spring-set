@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <bean id="address" class="cn.sxt.vo.Address">
+      <property name="address" value="Blah Street"></property>
+    </bean>
+    <bean id="student" class="cn.sxt.vo.Student">
+      <property name="name" value="James" />
+      <property name="address" ref="address" />
+      <property name="books">
+        <array>
+          <value>Book 1</value>
+          <value>Book 2</value>
+          <value>Book 3</value>
+          <value>Book 4</value>
+          <value>Book 5</value>
+          <value>Book 6</value>
+        </array>
+      </property>
+      <property name="hobbies">
+        <list>
+          <value>Badminton</value>
+          <value>Pingpong</value>
+          <value>Hobby3</value>
+        </list>
+      </property>
+      <property name="cards">
+        <map>
+          <entry key="Bank China" value="123321123"></entry>
+          <entry>
+            <key><value>Bank Australia</value></key>
+            <value>958849934</value>
+          </entry>
+        </map>
+      </property>
+      <property name="games">
+        <set>
+          <value>lol</value>
+          <value>dota</value>
+        </set>
+      </property>
+      <property name="wife">
+        <null></null>
+      </property>
+      <property name="info">
+        <props>
+          <prop key="studentId">38201</prop>
+          <prop key="age">22</prop>
+        </props>
+      </property>
+    </bean>
+</beans>
