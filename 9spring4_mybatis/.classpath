@@ -25,5 +25,6 @@
 	<classpathentry kind="lib" path="lib/mysql-connector-java-6.0.3.jar"/>
 	<classpathentry kind="lib" path="lib/aopalliance-1.0.jar"/>
 	<classpathentry kind="lib" path="lib/aspectjweaver-1.8.9.jar"/>
+	<classpathentry kind="lib" path="lib/spring-context-support-4.3.2.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
