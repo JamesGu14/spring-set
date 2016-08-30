@@ -13,6 +13,11 @@ public class UserDaoImpl implements UserDao {
 	
 	@Override
 	public List<User> selectAll() {
+		User user = new User();
+		user.setName("Blah User");
+		user.setPwd("xxx");
+		sqlSession.insert("cn.sxt.vo.user.mapper.add", user);
+		sqlSession.delete("cn.sxt.vo.user.mapper.remove", 20);
 		
 		return sqlSession.selectList("cn.sxt.vo.user.mapper.selectAll");
 	}

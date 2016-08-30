@@ -1,4 +1,4 @@
-package cn.sxt.test;
+package cn.sxt.main;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

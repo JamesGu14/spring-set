@@ -11,4 +11,12 @@
   <select id="selectUser" resultType="User">
     select * from user where id = #{id}
   </select>
+  
+  <insert id="add" parameterType="User" useGeneratedKeys="true">
+    insert into user(name, pwd) values(#{name}, #{pwd})
+  </insert>
+  
+  <delete id="remove">
+    delete from user where id=#{id}
+  </delete>
 </mapper>
