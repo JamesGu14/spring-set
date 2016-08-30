@@ -1,4 +1,4 @@
-package cn.sxt.staticproxy;
+package cn.sxt.dynamicproxy;
 
 public class Landlord implements Rent {
 
