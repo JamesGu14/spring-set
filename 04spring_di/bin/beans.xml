@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <bean id="address" class="cn.sxt.vo.Address">
+      <property name="address" value="Blah Street"></property>
+    </bean>
+    <bean id="student" class="cn.sxt.vo.Student">
+      <property name="name" value="James" />
+      <property name="address" ref="address" />
+      <property name="books">
+        <array>
+          <value>Book 1</value>
+          <value>Book 2</value>
+          <value>Book 3</value>
+          <value>Book 4</value>
+          <value>Book 5</value>
+          <value>Book 6</value>
+        </array>
+      </property>
+      <property name="hobbies">
+        <list>
+          <value>Badminton</value>
+          <value>Pingpong</value>
+          <value>Hobby3</value>
+        </list>
+      </property>
+      <property name="cards">
+        <map>
+          <entry key="Bank China" value="123321123"></entry>
+          <entry>
+            <key><value>Bank Australia</value></key>
+            <value>958849934</value>
+          </entry>
+        </map>
+      </property>
+      <property name="games">
+        <set>
+          <value>lol</value>
+          <value>dota</value>
+        </set>
+      </property>
+      <property name="wife">
+        <null></null>
+      </property>
+      <property name="info">
+        <props>
+          <prop key="studentId">38201</prop>
+          <prop key="age">22</prop>
+        </props>
+      </property>
+    </bean>
+    
+    <!-- Bean的作用于
+    singleton 单例：整个容器中只有一个对象实例（默认）
+    prototype 原型：每次获取bean都产生一个新的对象
+    request 每次request时，创建一个新的实例
+    session 在会话的范围内时的一个对象
+    globalSession: 只在portlet下有用，表示是application
+    application: 在应用范围内
+     -->
+    
+    <!-- p命名空间注入属性依然要设置set方法 -->
+    <bean id="user" class="cn.sxt.vo.User" p:name="风清扬" p:age="230" />
+    
+    <!-- c命名空间注入要求有对应参数的构造方法 -->
+    <bean id="user1" class="cn.sxt.vo.User" c:name="Nico" c:age="18"></bean>
+    
+</beans>
