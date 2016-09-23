@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+  
+<hibernate-mapping>
+  <class name="com.senso.pojo.Title" table="titles">
+    <composite-id>
+      <key-property name="emp_no"></key-property>
+      <key-property name="title"></key-property>
+      <key-property name="from_date"></key-property>
+    </composite-id>
+    <property name="to_date" />
+  </class>
+</hibernate-mapping>

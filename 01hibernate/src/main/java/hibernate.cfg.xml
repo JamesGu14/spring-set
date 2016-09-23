@@ -6,12 +6,16 @@
 	<session-factory>
 		<!-- 配置数据库连接 -->
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/CampusTrade</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/employees</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">root</property>
-
+  
+    <!-- hibernate 可选项信息 -->
 		<!-- 数据库Dialect -->
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-		<mapping resource="com/senso/pojo/SystemUser.hbm.xml" />
+		
+		<!-- 映射文件信息 -->
+		<mapping resource="com/senso/pojo/Title.hbm.xml" />
+		<mapping resource="com/senso/pojo/Employee.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

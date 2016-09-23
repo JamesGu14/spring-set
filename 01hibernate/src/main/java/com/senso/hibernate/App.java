@@ -1,11 +1,13 @@
 package com.senso.hibernate;
 
+import java.util.Date;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import com.senso.pojo.SystemUser;
+import com.senso.pojo.*;
 
 /**
  * Hello world!
@@ -32,14 +34,23 @@ public class App {
 		
 		Transaction transaction = session.beginTransaction();
 		
-		SystemUser systemUser = new SystemUser();
-		systemUser.setEmailaddress("test@gmail.com");
-		systemUser.setFirstname("James");
-		systemUser.setLastname("Gu");
-		systemUser.setPassword("123");
-		systemUser.setUsername("james3299");
-		systemUser.setUserrole(1);
-		session.save(systemUser);
+//		SystemUser systemUser = new SystemUser();
+//		systemUser.setEmailaddress("test@gmail.com");
+//		systemUser.setFirstname("James");
+//		systemUser.setLastname("Gu");
+//		systemUser.setPassword("123");
+//		systemUser.setUsername("james3299");
+//		systemUser.setUserrole(1);
+//		session.save(systemUser);
+		
+		Employee employee = new Employee();
+		employee.setEmp_no(1);
+		employee.setBirth_date(new Date());
+		employee.setFirst_name("First");
+		employee.setGender('M');
+		employee.setHire_date(new Date());
+		employee.setLast_name("Last");
+		session.save(employee);
 		
 		transaction.commit();
 		session.close();

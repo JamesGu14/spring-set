@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+  
+<hibernate-mapping>
+  <class name="com.senso.pojo.Employee" table="employees">
+    <id name="emp_no">
+      <!-- 主键生成策略 -->
+      <column name="emp_no" />
+    </id>
+    <property name="birth_date" />
+    <property name="first_name" />
+    <property name="last_name" />
+    <property name="gender" />
+    <property name="hire_date" />
+  </class>
+</hibernate-mapping>
