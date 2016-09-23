@@ -3,6 +3,7 @@ package com.senso.boot.controller;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,14 +13,23 @@ import com.senso.boot.mapper.EmployeesMapper;
 
 @RestController
 @EnableAutoConfiguration
+@RequestMapping("/hello")
 public class HelloController {
 	
 	@Autowired
 	private EmployeesMapper employeesMapper;
 	
+	@Value("${com.senso.custom.title}")
+	private String CustomTitle;
+	
 	@RequestMapping("/")
 	public String index() {
 		return "Hello from boot";
+	}
+	
+	@RequestMapping("/customString")
+	public String customString() {
+		return CustomTitle;
 	}
 	
 	@RequestMapping("/insert")
@@ -38,7 +48,6 @@ public class HelloController {
 			e.printStackTrace();
 			return "Insert failed";
 		}
-		
 	}
 	
 	@RequestMapping("/select")
