@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+	<!-- JDBC Build Path -->
+	<classPathEntry location="/Users/James/Project/java/spring-set/02boot/lib/mysql-connector-java-5.1.39.jar" />
+
+	<context id="campusTradeDb">
+		<!-- 注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="false" /><!-- 是否取消注释 -->
+			<property name="suppressDate" value="true" /> <!-- 是否生成注释代时间戳 -->
+		</commentGenerator>
+		
+		<!-- jdbc连接 -->
+		<jdbcConnection connectionURL="jdbc:mysql://localhost:3306/CampusTrade"
+			driverClass="com.mysql.jdbc.Driver" password="root" userId="root" />
+	
+		<!-- 类型转换 -->
+		<javaTypeResolver>
+			<!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		
+		<javaModelGenerator targetPackage="com.senso.boot.entity" targetProject="src/main/java">
+			<!-- 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] -->
+			<property name="enableSubPackages" value="true" />
+			<!-- 是否针对string类型的字段在set的时候进行trim调用 -->
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		
+		<!-- 生成XML mapper文件 -->
+		<sqlMapGenerator targetPackage="com.senso.boot.mapper" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		
+		<!-- 生成annotation interface mapper文件 -->
+		<javaClientGenerator targetPackage="com.senso.boot.mapper" targetProject="src/main/java" type="XMLMAPPER">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		
+		<table schema="CampusTrade" tableName="base_campususer_status">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table schema="CampusTrade" tableName="base_university">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table schema="CampusTrade" tableName="base_university_campus">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table schema="CampusTrade" tableName="campus_user">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table schema="CampusTrade" tableName="system_page">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table schema="CampusTrade" tableName="system_rolepage">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table schema="CampusTrade" tableName="system_user">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table schema="CampusTrade" tableName="system_userrole">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+	</context>
+</generatorConfiguration>

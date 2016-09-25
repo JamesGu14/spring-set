@@ -5,3 +5,4 @@ encoding/<project>=UTF-8
 encoding/application-dev.properties=UTF-8
 encoding/application-prod.properties=UTF-8
 encoding/application.properties=UTF-8
+separateDerivedEncodings=true

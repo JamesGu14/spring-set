@@ -43,14 +43,14 @@ public class App {
 //		systemUser.setUserrole(1);
 //		session.save(systemUser);
 		
-		Employee employee = new Employee();
-		employee.setEmp_no(1);
-		employee.setBirth_date(new Date());
-		employee.setFirst_name("First");
-		employee.setGender('M');
-		employee.setHire_date(new Date());
-		employee.setLast_name("Last");
-		session.save(employee);
+//		Employee employee = new Employee();
+//		employee.setEmp_no(1);
+//		employee.setBirth_date(new Date());
+//		employee.setFirst_name("First");
+//		employee.setGender('M');
+//		employee.setHire_date(new Date());
+//		employee.setLast_name("Last");
+//		session.save(employee);
 		
 		transaction.commit();
 		session.close();

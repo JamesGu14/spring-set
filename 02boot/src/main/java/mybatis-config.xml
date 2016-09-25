@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- development : 开发模式 -->
+	<!-- work：工作模式 -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost:3306/CampusTrade" />
+				<property name="username" value="root" />
+				<property name="password" value="root" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+	 <!-- <mapper resource="com/senso/mapper/SchoolclassMapper.xml" />
+	 <mapper resource="com/senso/mapper/TeacherMapper.xml" /> -->
+	 <mapper class="com.senso.boot.mapper.BaseCampususerStatusMapper" />
+	 <mapper class="com.senso.boot.mapper.BaseUniversityCampusMapper" />
+	 <mapper class="com.senso.boot.mapper.BaseUniversityMapper" />
+	 <mapper class="com.senso.boot.mapper.CampusUserMapper" />
+	 <mapper class="com.senso.boot.mapper.SystemPageMapper" />
+	 <mapper class="com.senso.boot.mapper.SystemRolepageMapper" />
+	 <mapper class="com.senso.boot.mapper.SystemUserMapper" />
+	 <mapper class="com.senso.boot.mapper.SystemUserroleMapper" />
+	</mappers>
+</configuration>
