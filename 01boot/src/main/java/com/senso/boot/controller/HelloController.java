@@ -2,7 +2,7 @@ package com.senso.boot.controller;
 
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,14 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.senso.boot.entity.Employees;
 import com.senso.boot.mapper.EmployeesMapper;
+import com.senso.boot.serviceImpl.EmployeeServiceImpl;
+import com.senso.boot.util.MyBatisUtil;
 
 @RestController
 @EnableAutoConfiguration
 @RequestMapping("/hello")
 public class HelloController {
-	
-	@Autowired
-	private EmployeesMapper employeesMapper;
 	
 	@Value("${com.senso.custom.title}")
 	private String CustomTitle;
@@ -35,14 +34,9 @@ public class HelloController {
 	@RequestMapping("/insert")
 	public String insert() {
 		try {
-			Employees employee = new Employees();
-			employee.setBirth_date(new Date());
-			employee.setEmp_no(3);
-			employee.setFirst_name("MyFirst");;
-			employee.setGender("F");
-			employee.setHire_date(new Date());
-			employee.setLast_name("MyLast");
-			int insert = employeesMapper.insert(employee);
+			Employees employees = new Employees(5, new Date(), "Test20", "Last20", "F", new Date());
+			EmployeeServiceImpl employeeServiceImpl = new EmployeeServiceImpl();
+			int insert = employeeServiceImpl.add(employees);
 			return "Insert " + insert + " items.";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -53,8 +47,27 @@ public class HelloController {
 	@RequestMapping("/select")
 	public String select() {
 		
+		SqlSession session = MyBatisUtil.getFactory().openSession();
+		EmployeesMapper employeesMapper = session.getMapper(EmployeesMapper.class);
+		
 		Employees employee = employeesMapper.selectByPrimaryKey(3);
-		return employee.getFirst_name();
+
+		session.commit();
+	  session.close();
+	  return employee.getFirst_name();
+	}
+	
+	@RequestMapping("/transaction")
+	public String transaction() {
+		
+		EmployeeServiceImpl employeeServiceImpl = new EmployeeServiceImpl();
+		Employees employees = new Employees(25, new Date(), "Test20", "Last20", "F", new Date());
+		employeeServiceImpl.add(employees);
+		
+		Employees employees2 = new Employees(26, new Date(), "Failed22", "Last22", "F", new Date());
+		employeeServiceImpl.addFailed(employees2);
+		
+		return "Go check database";
 	}
 }
 
